@@ -1,0 +1,59 @@
+GET SINGLE USER
+Given user wants to retrieve a Single User info using GET method on /api/users/{id} endpoint
+And user provides valid id
+| field | valid values        |
+| id    | 1 - 12, digits only |
+Then user should get response with status code 200
+And payload with "id" matching with requested id
+
+
+SINGLE USER NOT FOUND
+Given user wants to retrieve a Single User info using GET method on /api/users/{id} endpoint
+And user provides invalid id
+| field | invalid values      |
+| id    | 0 > id || id > 12   |
+Then user should get response with status code 404
+And payload with empty "{}"
+
+
+GET LIST OF USERS
+Given user wants to retrieve a List of Users' info using GET method on /api/users?page= endpoint
+And user provides valid page number
+| field          | valid values      |
+| page number    | 1, 2              |
+Then user should get response with status code 200
+And payload with "data[]" of size 6
+
+
+CREATE A USER
+Given user wants to create a New User using POST method on /api/users endpoint
+And user provides payload with "name" and "job" values
+| field | valid values |
+| name  | String     |
+| job   | String      |
+Then user should get response with status code 201
+And payload with matching "name" and "value" as requested
+And "id" assigned to New User
+And "createdAt" field not empty
+
+
+UPDATE A USER
+Given user wants to update an existing User using PUT method on /api/users/{id} endpoint
+And user provides valid id of existing user
+And user provides payload with "name" and "job" values
+| field | valid values |
+| id    | 1 - 12       |
+| name  | String       |
+| job   | String       |
+Then user should get response with status code 200
+And payload with matching "name" and "value" as requested
+And "updatedAt" field not empty
+
+
+DELETE USER
+Given user wants to delete a Single User using DELETE method on /api/users/{id} endpoint
+And user provides valid id of existing user
+| field | valid values      |
+| id    |  1 - 12           |
+Then user should get response with status code 204
+
