@@ -57,9 +57,5 @@ public class SingleUser {
             singleUser.support = this.support;
             return singleUser;
         }
-
-
     }
-
-
 }

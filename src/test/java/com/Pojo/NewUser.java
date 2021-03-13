@@ -58,6 +58,5 @@ public class NewUser {
             newUser.job = this.job;
             return newUser;
         }
-
     }
 }

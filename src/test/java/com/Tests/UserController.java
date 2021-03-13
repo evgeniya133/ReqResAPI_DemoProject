@@ -63,6 +63,4 @@ public class UserController {
         given(reqSpecification).pathParam("id", id).
                 delete("/{id}");
     }
-
-
 }

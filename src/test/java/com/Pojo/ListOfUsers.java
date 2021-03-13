@@ -84,5 +84,4 @@ public class ListOfUsers {
                 support.equals(that.support);
     }
 
-
 }

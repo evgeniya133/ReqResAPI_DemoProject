@@ -69,5 +69,4 @@ public class UserTests {
         userController.deleteUser(2);
     }
 
-
 }
