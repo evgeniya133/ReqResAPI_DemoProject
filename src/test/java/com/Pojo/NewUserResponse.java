@@ -1,7 +1,5 @@
 package com.Pojo;
 
-import java.util.Objects;
-
 public class NewUserResponse extends NewUser {
     private String id;
     private String createdAt;
