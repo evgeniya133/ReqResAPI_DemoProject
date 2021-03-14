@@ -78,7 +78,7 @@ public class UserTests {
         assertThat(updUserResponse.getUpdatedAt(), is(not(emptyString())));
     }
 
-    @Test (priority = 5)
+    @Test (enabled = false)
     public void deleteUser(){
         Response response = userController.deleteUser(2);
         assertThat(response.getStatusCode(), is(204));
