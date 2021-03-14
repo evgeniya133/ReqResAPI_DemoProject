@@ -38,8 +38,33 @@ public class SingleUser {
     }
 
     public static class Builder {
-        private Data data;
-        private Support support;
+        private Data data = new Data();
+        private Support support = new Support();
+
+        public Builder withID(int id) {
+            this.data.setId(id);
+            return this;
+        }
+
+        public Builder withEmail(String email) {
+            this.data.setEmail(email);
+            return this;
+        }
+
+        public Builder withFirstName(String first_name) {
+            this.data.setFirst_name(first_name);
+            return this;
+        }
+
+        public Builder withLasName(String last_name) {
+            this.data.setLast_name(last_name);
+            return this;
+        }
+
+        public Builder withAvatar(String avatar) {
+            this.data.setAvatar(avatar);
+            return this;
+        }
 
         public Builder withData(Data data) {
             this.data = data;
@@ -48,6 +73,16 @@ public class SingleUser {
 
         public Builder withSupport(Support support) {
             this.support = support;
+            return this;
+        }
+
+        public Builder withUrl(String url) {
+            this.support.setUrl(url);
+            return this;
+        }
+
+        public Builder withText(String text) {
+            this.support.setText(text);
             return this;
         }
 

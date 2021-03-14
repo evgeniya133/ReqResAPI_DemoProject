@@ -1,13 +1,6 @@
 package com.Pojo;
 
 public class Data {
-    public static Data data1 = new Builder()
-            .withID(1)
-            .withFirstName("Mary")
-            .withLasName("Jones")
-            .withEmail("maryjones@yahoo.com")
-            .withAvatar("https://reqres.in/img/faces/12-image.jpg")
-            .build();
     private int id;
     private String email;
     private String first_name;
@@ -75,50 +68,5 @@ public class Data {
                 first_name.equals(data.first_name) &&
                 last_name.equals(data.last_name) &&
                 avatar.equals(data.avatar);
-    }
-
-    public static class Builder {
-
-        private int id;
-        private String email;
-        private String first_name;
-        private String last_name;
-        private String avatar;
-
-        public Builder withID(int id) {
-            this.id = id;
-            return this;
-        }
-
-        public Builder withEmail(String email) {
-            this.email = email;
-            return this;
-        }
-
-        public Builder withFirstName(String first_name) {
-            this.first_name = first_name;
-            return this;
-        }
-
-        public Builder withLasName(String last_name) {
-            this.last_name = last_name;
-            return this;
-        }
-
-        public Builder withAvatar(String avatar) {
-            this.avatar = avatar;
-            return this;
-        }
-
-        public Data build() {
-            Data data = new Data();
-            data.id = this.id;
-            data.first_name = this.first_name;
-            data.last_name = this.last_name;
-            data.email = this.email;
-            data.avatar = this.avatar;
-            return data;
-        }
-
     }
 }

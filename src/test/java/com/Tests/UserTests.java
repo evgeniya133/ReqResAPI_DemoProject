@@ -14,8 +14,13 @@ public class UserTests {
     UserController userController;
 
     SingleUser singleUser = new SingleUser.Builder()
-            .withData(Data.data1)
-            .withSupport(Support.support1)
+            .withID(1)
+            .withFirstName("Mary")
+            .withLasName("Jones")
+            .withEmail("maryjones@yahoo.com")
+            .withAvatar("https://reqres.in/img/faces/12-image.jpg")
+            .withUrl("https://reqres.in/#support-heading")
+            .withText("To keep ReqRes free, contributions towards server costs are appreciated!")
             .build();
     NewUser newUser = new NewUser.Builder()
             .withName(getUserName())
