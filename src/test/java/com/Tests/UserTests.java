@@ -13,19 +13,19 @@ public class UserTests {
 
     SingleUser singleUser = new SingleUser.Builder()
             .withID(1)
-            .withFirstName("Mary")
-            .withLasName("Jones")
-            .withEmail("maryjones@yahoo.com")
-            .withAvatar("https://reqres.in/img/faces/12-image.jpg")
-            .withUrl("https://reqres.in/#support-heading")
-            .withText("To keep ReqRes free, contributions towards server costs are appreciated!")
+            .withFirstName(getUserFirstName())
+            .withLasName(getUserLastName())
+            .withEmail(getUserEmail())
+            .withAvatar(getAvatar())
+            .withUrl(getUrl())
+            .withText(getText())
             .build();
     NewUser newUser = new NewUser.Builder()
-            .withName(getUserName())
+            .withName(getUserFirstName())
             .withJob(getUserJob())
             .build();
     UpdatedUser updatedUser = new UpdatedUser.Builder()
-            .withName(getUserName())
+            .withName(getUserFirstName())
             .withJob(getUserJob())
             .build();
 
