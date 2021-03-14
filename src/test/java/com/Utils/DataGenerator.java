@@ -3,7 +3,7 @@ package com.Utils;
 import com.github.javafaker.Faker;
 import java.util.Random;
 
-public class UserGenerator {
+public class DataGenerator {
     public static Faker faker = new Faker();
 
     public static String getUserName(){

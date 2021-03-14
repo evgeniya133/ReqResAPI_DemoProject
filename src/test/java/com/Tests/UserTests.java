@@ -4,7 +4,7 @@ import com.Pojo.*;
 import io.restassured.response.Response;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import static com.Utils.UserGenerator.*;
+import static com.Utils.DataGenerator.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 

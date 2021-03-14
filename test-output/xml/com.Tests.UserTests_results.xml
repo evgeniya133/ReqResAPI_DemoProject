@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Pet API tests"
+           tests="5"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="3.338">
+    <properties></properties>
+
+
+
+            <testcase
+                name="updateUser"
+                time="0.367"
+                classname="com.Tests.UserTests">
+            </testcase>
+            <testcase
+                name="getUserInvalidID"
+                time="1.832"
+                classname="com.Tests.UserTests">
+            </testcase>
+            <testcase
+                name="getUserValidID"
+                time="0.549"
+                classname="com.Tests.UserTests">
+            </testcase>
+            <testcase
+                name="createUser"
+                time="0.413"
+                classname="com.Tests.UserTests">
+            </testcase>
+            <testcase
+                name="getListOfUsers"
+                time="0.177"
+                classname="com.Tests.UserTests">
+            </testcase>
+</testsuite>
