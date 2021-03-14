@@ -1,7 +1,7 @@
 package com.Utils;
 
 import com.github.javafaker.Faker;
-import org.apache.commons.lang3.RandomStringUtils;
+import java.util.Random;
 
 public class UserGenerator {
     public static Faker faker = new Faker();
@@ -15,15 +15,12 @@ public class UserGenerator {
     }
 
     public static int validUserID(){
-        return Integer.parseInt(faker.regexify("[1-12]{1}"));
+        Random rand = new Random();
+        return rand.nextInt(13);
     }
 
     public static int invalidUserID(){
-        int id = 0;
-        while (id < 13) {
-            id = Integer.parseInt(faker.regexify("[1-9]{2}"));
-            break;
-        }
-        return id;
+        Random rand = new Random();
+        return rand.nextInt(1000) + 13;
     }
 }
