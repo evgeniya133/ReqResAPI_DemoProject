@@ -18,23 +18,22 @@ import static com.Utils.Constants.*;
 import static io.restassured.RestAssured.given;
 
 public class UserController {
-
     private RequestSpecification reqSpecification;
     private ResponseSpecification responseSpecification;
 
     public UserController (){
-        RequestSpecBuilder resSpecBuilder = new RequestSpecBuilder();
-        resSpecBuilder.setBaseUri(user_endpoint);
-        resSpecBuilder.setContentType(ContentType.JSON);
-        resSpecBuilder.log(LogDetail.ALL);
-        reqSpecification = resSpecBuilder.build();
+        RequestSpecBuilder requestSpecBuilder = new RequestSpecBuilder();
+        requestSpecBuilder.setBaseUri(user_endpoint);
+        requestSpecBuilder.setContentType(ContentType.JSON);
+        requestSpecBuilder.log(LogDetail.ALL);
+        reqSpecification = requestSpecBuilder.build();
 
         ResponseSpecBuilder responseSpecBuilder = new ResponseSpecBuilder();
         responseSpecBuilder.expectContentType(ContentType.JSON);
         responseSpecification = responseSpecBuilder.build();
     }
 
-    public Response getSingleUser(int id){
+    public Response getUser(int id){
         return given(reqSpecification).
                 pathParam("id", id).
                 get("/{id}").
@@ -59,8 +58,8 @@ public class UserController {
                 put("/{id}");
     }
 
-    public void deleteUser(int id) {
-        given(reqSpecification).pathParam("id", id).
-                delete("/{id}");
+    public Response deleteUser(int id) {
+        return given(reqSpecification).pathParam("id", id).
+                delete("/{id}").then().extract().response();
     }
 }

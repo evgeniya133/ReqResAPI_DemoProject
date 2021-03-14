@@ -1,7 +1,6 @@
 package com.Pojo;
 
 public class Support {
-
     public static Support support1 = new Support.Builder()
             .withUrl("https://reqres.in/#support-heading")
             .withText("To keep ReqRes free, contributions towards server costs are appreciated!")

@@ -3,7 +3,6 @@ package com.Pojo;
 import java.util.List;
 
 public class ListOfUsers {
-
     private List<Data> data;
     private Support support;
     private int page;
@@ -83,5 +82,4 @@ public class ListOfUsers {
                 data.equals(that.data) &&
                 support.equals(that.support);
     }
-
 }

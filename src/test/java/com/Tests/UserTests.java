@@ -11,19 +11,18 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
 public class UserTests {
-
     UserController userController;
     SingleUser singleUser = new SingleUser.Builder()
             .withData(Data.data1)
             .withSupport(Support.support1)
             .build();
     NewUser newUser = new NewUser.Builder()
-            .withName(giveUserName())
-            .withJob(giveUserJob())
+            .withName(getUserName())
+            .withJob(getUserJob())
             .build();
     UpdatedUser updatedUser = new UpdatedUser.Builder()
-            .withName(giveUserName())
-            .withJob(giveUserJob())
+            .withName(getUserName())
+            .withJob(getUserJob())
             .build();
 
     @BeforeClass
@@ -34,7 +33,7 @@ public class UserTests {
     @Test(priority = 1)
     public void getUserValidID() {
         int expectedID = validUserID();
-        Response response = userController.getSingleUser(expectedID);
+        Response response = userController.getUser(expectedID);
         assertThat(response.getStatusCode(), is(200));
         SingleUser su = response.getBody().as(SingleUser.class);
         assertThat(su.getData().getId(), is(equalTo(expectedID)));
@@ -43,7 +42,7 @@ public class UserTests {
     @Test(priority = 1)
     public void getUserInvalidID() {
         int expectedID = invalidUserID();
-        Response response = userController.getSingleUser(expectedID);
+        Response response = userController.getUser(expectedID);
         assertThat(response.getStatusCode(), is(404));
     }
 
@@ -51,6 +50,7 @@ public class UserTests {
     public void getListOfUsers(){
         ListOfUsers list = userController.getListOfUsers();
         assertThat(list.getPer_page(), is(6));
+        assertThat(list.getPage(), is(1));
     }
 
     @Test (priority = 3)
@@ -66,7 +66,7 @@ public class UserTests {
 
     @Test (priority = 5)
     public void deleteUser(){
-        userController.deleteUser(2);
+        Response response = userController.deleteUser(2);
+        assertThat(response.getStatusCode(), is(204));
     }
-
 }

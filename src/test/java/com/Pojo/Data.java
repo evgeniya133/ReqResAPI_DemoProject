@@ -1,7 +1,6 @@
 package com.Pojo;
 
 public class Data {
-
     public static Data data1 = new Builder()
             .withID(1)
             .withFirstName("Mary")
@@ -122,5 +121,4 @@ public class Data {
         }
 
     }
-
 }

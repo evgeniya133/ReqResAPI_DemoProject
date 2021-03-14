@@ -1,7 +1,6 @@
 package com.Pojo;
 
 public class NewUser {
-
     private String name;
     private String job;
 

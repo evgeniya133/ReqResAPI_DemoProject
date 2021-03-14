@@ -1,7 +1,6 @@
 package com.Pojo;
 
 public class UpdatedUser {
-
     private String name;
     private String job;
 
