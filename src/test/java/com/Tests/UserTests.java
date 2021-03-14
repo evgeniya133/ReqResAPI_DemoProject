@@ -61,7 +61,9 @@ public class UserTests {
 
     @Test (priority = 3)
     public void createUser(){
-        NewUserResponse newUserResponse = userController.createUser(newUser);
+        Response response = userController.createUser(newUser);
+        assertThat(response.getStatusCode(), is(201));
+        NewUserResponse newUserResponse = response.as(NewUserResponse.class);
         assertThat(newUserResponse.getName(), equalTo(newUser.getName()));
     }
 
