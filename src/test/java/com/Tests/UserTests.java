@@ -12,6 +12,7 @@ import static org.hamcrest.Matchers.*;
 
 public class UserTests {
     UserController userController;
+
     SingleUser singleUser = new SingleUser.Builder()
             .withData(Data.data1)
             .withSupport(Support.support1)
@@ -55,8 +56,8 @@ public class UserTests {
 
     @Test (priority = 3)
     public void createUser(){
-        JsonPath jp = userController.createUser(newUser);
-        assertThat(jp.get("createdAt"), is(not(empty())));
+        NewUserResponse newUserResponse = userController.createUser(newUser);
+        assertThat(newUserResponse.getName(), equalTo(newUser.getName()));
     }
 
     @Test (priority = 4)

@@ -1,9 +1,6 @@
 package com.Tests;
 
-import com.Pojo.ListOfUsers;
-import com.Pojo.NewUser;
-import com.Pojo.SingleUser;
-import com.Pojo.UpdatedUser;
+import com.Pojo.*;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.LogDetail;
@@ -30,6 +27,7 @@ public class UserController {
 
         ResponseSpecBuilder responseSpecBuilder = new ResponseSpecBuilder();
         responseSpecBuilder.expectContentType(ContentType.JSON);
+        responseSpecBuilder.log(LogDetail.ALL);
         responseSpecification = responseSpecBuilder.build();
     }
 
@@ -37,7 +35,7 @@ public class UserController {
         return given(reqSpecification).
                 pathParam("id", id).
                 get("/{id}").
-                then().log().body().extract().response();
+                then().spec(responseSpecification).extract().response();
     }
 
     public ListOfUsers getListOfUsers(){
@@ -45,10 +43,10 @@ public class UserController {
                 get().as(ListOfUsers.class);
     }
 
-    public JsonPath createUser(NewUser user){
+    public NewUserResponse createUser(NewUser user){
         return given(reqSpecification).
                 body(user).
-                post().then().log().body().extract().jsonPath();
+                post().then().spec(responseSpecification).extract().as(NewUserResponse.class);
     }
 
     public void updateUser(int id, UpdatedUser updatedUser){
