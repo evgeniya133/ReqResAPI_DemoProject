@@ -1,20 +1,20 @@
 package com.Pojo;
 
 public class UpdatedUserResponse extends UpdatedUser {
-    private String createdAt;
+    private String updatedAt;
 
-    public String getCreatedAt() {
-        return createdAt;
+    public String getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
+    public void setUpdatedAt(String createdAt) {
+        this.updatedAt = createdAt;
     }
 
     @Override
     public String toString() {
         return "UpdatedUserResponse{" +
-                "createdAt='" + createdAt + '\'' +
+                "updatedAt='" + updatedAt + '\'' +
                 '}';
     }
 
@@ -24,6 +24,6 @@ public class UpdatedUserResponse extends UpdatedUser {
         if (!(o instanceof UpdatedUserResponse)) return false;
         if (!super.equals(o)) return false;
         UpdatedUserResponse that = (UpdatedUserResponse) o;
-        return createdAt.equals(that.createdAt);
+        return updatedAt.equals(that.updatedAt);
     }
 }

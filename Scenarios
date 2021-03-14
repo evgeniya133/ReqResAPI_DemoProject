@@ -32,9 +32,8 @@ And user provides payload with "name" and "job" values
 | name  | String     |
 | job   | String      |
 Then user should get response with status code 201
-And payload with matching "name" and "value" as requested
+And payload with matching "name" and "job" as requested
 And "id" assigned to New User
-And "createdAt" field not empty
 
 
 UPDATE A USER

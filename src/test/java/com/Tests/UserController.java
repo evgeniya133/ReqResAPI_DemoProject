@@ -38,9 +38,9 @@ public class UserController {
                 then().spec(responseSpecification).extract().response();
     }
 
-    public ListOfUsers getListOfUsers(){
+    public Response getListOfUsers(){
         return given(requestSpecification).
-                get().as(ListOfUsers.class);
+                get().then().spec(responseSpecification).extract().response();
     }
 
     public Response createUser(NewUser user){
@@ -49,15 +49,15 @@ public class UserController {
                 post().then().spec(responseSpecification).extract().response();
     }
 
-    public void updateUser(int id, UpdatedUser updatedUser){
-        given(requestSpecification).
+    public Response updateUser(int id, UpdatedUser updatedUser){
+       return given(requestSpecification).
                 pathParam("id", id).
                 body(updatedUser).
-                put("/{id}");
+                put("/{id}").then().spec(responseSpecification).extract().response();
     }
 
     public Response deleteUser(int id) {
         return given(requestSpecification).pathParam("id", id).
-                delete("/{id}").then().extract().response();
+                delete("/{id}").then().spec(responseSpecification).extract().response();
     }
 }

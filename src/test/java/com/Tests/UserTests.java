@@ -52,9 +52,10 @@ public class UserTests {
 
     @Test (priority = 2)
     public void getListOfUsers(){
-        ListOfUsers list = userController.getListOfUsers();
-        assertThat(list.getPer_page(), is(6));
-        assertThat(list.getPage(), is(1));
+        Response response = userController.getListOfUsers();
+        assertThat(response.statusCode(), is(200));
+        ListOfUsers listOfUsers = response.as(ListOfUsers.class);
+        assertThat(listOfUsers.getData().size(), equalTo(6));
     }
 
     @Test (priority = 3)
@@ -63,11 +64,18 @@ public class UserTests {
         assertThat(response.getStatusCode(), is(201));
         NewUserResponse newUserResponse = response.as(NewUserResponse.class);
         assertThat(newUserResponse.getName(), equalTo(newUser.getName()));
+        assertThat(newUserResponse.getJob(), equalTo(newUser.getJob()));
+        assertThat(newUserResponse.getId(), is(not(emptyString())));
     }
 
     @Test (priority = 4)
     public void updateUser(){
-        userController.updateUser(1, updatedUser);
+        Response response = userController.updateUser(1, updatedUser);
+        assertThat(response.statusCode(), is(200));
+        UpdatedUserResponse updUserResponse = response.as(UpdatedUserResponse.class);
+        assertThat(updUserResponse.getName(), equalTo(updatedUser.getName()));
+        assertThat(updUserResponse.getJob(), equalTo(updatedUser.getJob()));
+        assertThat(updUserResponse.getUpdatedAt(), is(not(emptyString())));
     }
 
     @Test (priority = 5)
