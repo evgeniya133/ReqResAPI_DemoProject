@@ -25,7 +25,6 @@ public class UserController {
         requestSpecification = requestSpecBuilder.build();
 
         ResponseSpecBuilder responseSpecBuilder = new ResponseSpecBuilder();
-        responseSpecBuilder.expectContentType(ContentType.JSON);
         responseSpecBuilder.expectHeader("Server", "cloudflare");
         responseSpecBuilder.log(LogDetail.ALL);
         responseSpecification = responseSpecBuilder.build();
