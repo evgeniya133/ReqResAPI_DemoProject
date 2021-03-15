@@ -11,7 +11,7 @@ SINGLE USER NOT FOUND
 Given user wants to retrieve a Single User info using GET method on /api/users/{id} endpoint
 And user provides invalid id
 | field | invalid values      |
-| id    | 0 > id || id > 12   |
+| id    | id > 12             |
 Then user should get response with status code 404
 And payload with empty "{}"
 
@@ -29,8 +29,8 @@ CREATE A USER
 Given user wants to create a New User using POST method on /api/users endpoint
 And user provides payload with "name" and "job" values
 | field | valid values |
-| name  | String     |
-| job   | String      |
+| name  | String       |
+| job   | String       |
 Then user should get response with status code 201
 And payload with matching "name" and "job" as requested
 And "id" assigned to New User
